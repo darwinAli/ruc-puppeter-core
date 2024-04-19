@@ -1,11 +1,12 @@
 
 const puppeteer=require('puppeteer-core');
+require("dotenv").config();
 
 async function openWebPage(numRuc){
     const browser=await puppeteer.launch({
-        args:['--no-sandbox', '--disable-setuid-sandbox'],
+        args:['--no-sandbox', '--disable-setuid-sandbox',"--single-process","--no-zygote"],
         headless:true,  // hace que nos muestre el navegador o no 
-       executablePath:"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
+       executablePath: process.env.NODE_ENV=="production"?process.env.PUPPETEER_EXECUTABLE_PATH:puppeteer.executablePath(),
     });
     
     const page=await browser.newPage();
