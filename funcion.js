@@ -5,7 +5,7 @@ async function openWebPage(numRuc){
     const browser=await puppeteer.launch({
         args:['--no-sandbox', '--disable-setuid-sandbox'],
         headless:true,  // hace que nos muestre el navegador o no 
-      
+       executablePath:"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
     });
     
     const page=await browser.newPage();
