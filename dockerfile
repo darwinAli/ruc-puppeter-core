@@ -10,4 +10,4 @@ RUN npm ci
 
 COPY . .
 
-CMD ["node","sever.js"]
+CMD ["npm","start"]
